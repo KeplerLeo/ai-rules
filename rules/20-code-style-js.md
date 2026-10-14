@@ -8,7 +8,7 @@
 - Booleans read as predicates: `isActive`, `hasAccess`, `shouldRetry`.
 - **No `console.log` in committed code.** Backend logs via Fastify's logger (`app.log` / `request.log`, pino underneath). Frontend ships no logs to production.
 - Errors: `try/catch` at boundaries (route handlers, scripts, top-level jobs). Never swallow an error silently — log it or rethrow. No empty `catch {}`.
-- HTTP calls go through a shared axios instance (`src/lib/api.js` / `api/http.js`) with `baseURL` from env. Never `axios.get("https://...")` with a hardcoded URL inline.
+- HTTP calls go through a shared axios instance — `src/services/api.js` on the frontend, `src/shared/clients/` on the backend — with `baseURL` from env. Never `axios.get("https://...")` with a hardcoded URL inline.
 
 ### File layout (top-to-bottom reading)
 

@@ -2,7 +2,8 @@
 
 - `prisma/schema.prisma` is the source of truth for the schema.
 - Schema changes go through `npx prisma migrate dev -n <name>` — never edit an applied migration, never `db push` against production.
-- PrismaClient is a singleton in `src/lib/prisma.js` (single instance prevents pool exhaustion under hot-reload and serverless):
+- **Prisma is only imported inside `*.repository.js` files.** Services and routes call the domain repository — the ORM never escapes the repository layer (see Repository Structure).
+- PrismaClient is a singleton in `src/shared/clients/prisma.js` (single instance prevents pool exhaustion under hot-reload and serverless):
 
   ```js
   import { PrismaClient } from '@prisma/client';

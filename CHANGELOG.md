@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.0 — 2026-10-14
+
+- New fragment `15-repo-structure.md`: canonical domain-driven layout —
+  `backend/src/modules/{domain}/{routes,service,repository,schemas}` +
+  `shared/` for cross-cutting; one-way `routes → service → repository → ORM`;
+  `api/` reserved for Vercel serverless; gradual convergence for existing
+  projects. Applied unconditionally to all JS projects.
+- `30-backend-fastify.md` rewritten for the modular domain model
+  (modules/, shared/plugins/, shared/errors/).
+- `35-db-prisma.md` / `36-db-supabase.md`: ORM confined to `*.repository.js`;
+  singleton clients moved to `src/shared/clients/`.
+- `20-code-style-js.md` / `40-frontend-react.md`: aligned to the real frontend
+  convention — `src/services/api.js` (not `lib/`).
+
 ## 1.2.0 — 2026-10-14
 
 - New fragment `91-docker.md` + `docker` stack token: detects `Dockerfile*`,

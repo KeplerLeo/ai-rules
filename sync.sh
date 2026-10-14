@@ -152,7 +152,7 @@ sync_project() {
     return
   fi
 
-  local frags=(00-header.md 10-overview.md 20-code-style-js.md)
+  local frags=(00-header.md 10-overview.md 15-repo-structure.md 20-code-style-js.md)
   [[ " $stack " == *" fastify "*  ]] && frags+=(30-backend-fastify.md)
   [[ " $stack " == *" prisma "*   ]] && frags+=(35-db-prisma.md)
   [[ " $stack " == *" supabase "* ]] && frags+=(36-db-supabase.md)

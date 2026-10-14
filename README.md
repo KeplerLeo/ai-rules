@@ -15,6 +15,7 @@ they never reference this repo by path.
 rules/
 ├── 00-header.md          # GENERATED banner + AGENTS.local.md note
 ├── 10-overview.md        # per-project overview skeleton ({{PROJECT_NAME}})
+├── 15-repo-structure.md  # canonical domain-driven layout (modules/ + shared/)
 ├── 20-code-style-js.md   # universal JS/React style
 ├── 30-backend-fastify.md # Fastify conventions        → backend/api/ scope
 ├── 35-db-prisma.md       # applied when prisma detected → backend/api/ scope
