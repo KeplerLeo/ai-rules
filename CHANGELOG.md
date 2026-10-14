@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.4.0 — 2026-10-14
+
+- `60-git-hygiene.md` expanded with two new sections:
+  - **Branches**: trunk-based workflow off `main`, `<type>/<scope>-<short-desc>`
+    naming (`feat|fix|chore|refactor|docs|test|hotfix`), one concern per branch,
+    rebase-before-PR, `main` always deployable, `hotfix/*` exception with
+    back-porting requirement.
+  - **Atomic Commits**: each commit builds and does one thing, `git add -p` for
+    splitting working trees, refactor → feature → docs/tests ordering, squash
+    WIP before merge, Conventional Commits only when the repo already uses them,
+    no amend/force-push on reviewed PRs.
+
 ## 1.3.0 — 2026-10-14
 
 - New fragment `15-repo-structure.md`: canonical domain-driven layout —
