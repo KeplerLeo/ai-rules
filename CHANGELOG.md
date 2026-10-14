@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1 — 2026-10-14
+
+- Fix: `--stack a,b,c` comma-separated values are normalized to spaces before
+  token matching. Previously commas silently matched no stack tokens, producing
+  a minimal AGENTS.md and skipping scoped backend/frontend dirs.
+
 ## 1.3.0 — 2026-10-14
 
 - New fragment `15-repo-structure.md`: canonical domain-driven layout —
