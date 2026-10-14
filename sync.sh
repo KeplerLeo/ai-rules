@@ -38,6 +38,7 @@ while [ $# -gt 0 ]; do
     *)        TARGETS+=("$1"); shift ;;
   esac
 done
+FORCE_STACK="${FORCE_STACK//,/ }"
 [ ${#TARGETS[@]} -gt 0 ] || die "no target. Usage: ./sync.sh [--check] [--all] [--stack a,b,c] <project-dir>"
 
 # --- helpers -----------------------------------------------------------------
