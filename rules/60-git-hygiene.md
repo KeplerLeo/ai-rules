@@ -9,6 +9,7 @@
 ### Branches
 
 - Trunk-based: branch short-lived off `main`, merge via PR, delete after merge.
+- Always `git pull` (fetch + fast-forward) `main` **before** creating a new branch — never branch off a stale local `main`.
 - Naming: `<type>/<scope>-<short-desc>` — e.g. `feat/auth-refresh`, `fix/cart-total`, `chore/deps-bump`. Types: `feat`, `fix`, `chore`, `refactor`, `docs`, `test`, `hotfix`.
 - One branch = one concern. Never mix refactor + feature in the same branch.
 - Rebase onto `main` before opening the PR; resolve conflicts locally, never with merge commits into `main` (unless the repo uses merge-flow).
