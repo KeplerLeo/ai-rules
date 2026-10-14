@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 — 2026-10-14
+
+- New fragment `91-docker.md` + `docker` stack token: detects `Dockerfile*`,
+  `docker-compose*.yml`, `compose.{yml,yaml}` at root or one level deep.
+  Covers real footguns found in existing projects: `.env` baked into images,
+  hardcoded compose passwords, missing `.dockerignore`, unpinned/non-LTS base
+  images (rule: `lts-alpine` or explicit LTS major, never `:latest`), `|| true`
+  in CMD swallowing migration failures, empty committed Dockerfiles.
+
 ## 1.1.0 — 2026-10-14
 
 - sync.sh now writes `.github/copilot-instructions.md` (pointer stub) at the

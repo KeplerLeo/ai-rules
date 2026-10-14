@@ -6,7 +6,7 @@
 #   ./sync.sh --all                      sync every path in MANIFEST.txt
 #   ./sync.sh --check <project-dir>      dry-run: report what would be written
 #   ./sync.sh --stack a,b,c <dir>        force stack (skip detection)
-#                                        tokens: fastify prisma supabase react vercel python
+#                                        tokens: fastify prisma supabase react vercel docker python
 set -euo pipefail
 
 AI_RULES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -63,6 +63,10 @@ detect_stack() {  # echoes space-separated stack tokens
     stack="$stack react"
   fi
   [ -f "$d/vercel.json" ] && stack="$stack vercel"
+  if compgen -G "$d/Dockerfile*" >/dev/null || compgen -G "$d/*/Dockerfile*" >/dev/null \
+     || compgen -G "$d/docker-compose*.y*ml" >/dev/null || compgen -G "$d/compose.y*ml" >/dev/null; then
+    stack="$stack docker"
+  fi
   echo "${stack# }"
 }
 
@@ -155,6 +159,7 @@ sync_project() {
   [[ " $stack " == *" react "*    ]] && frags+=(40-frontend-react.md)
   frags+=(50-testing.md 60-git-hygiene.md 70-docs-policy.md 80-security-env.md)
   [[ " $stack " == *" vercel "*   ]] && frags+=(90-deploy-vercel.md)
+  [[ " $stack " == *" docker "*   ]] && frags+=(91-docker.md)
 
   render "${frags[@]}" | write_out "$dir/AGENTS.md"
   link_claude "$dir"

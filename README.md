@@ -25,6 +25,7 @@ rules/
 ├── 70-docs-policy.md     # no status/summary .md sprawl
 ├── 80-security-env.md    # env vars, secrets, CORS, webhooks
 ├── 90-deploy-vercel.md   # applied when vercel.json exists
+├── 91-docker.md          # applied when Dockerfile/compose detected
 ├── _template.md          # skeleton + process for adding new fragments
 ├── python-stub/AGENTS.md # standalone template for Python projects
 └── stubs/
@@ -86,5 +87,6 @@ patching every repo:
 | `@supabase/supabase-js` dep                    | 36-db-supabase                |
 | `vite.config.*` or `react`/`vite` deps         | 40-frontend-react             |
 | `vercel.json`                                  | 90-deploy-vercel              |
+| `Dockerfile*`/`docker-compose*.yml`/`compose.*`| 91-docker                     |
 | `requirements.txt`/`*.py`, no `package.json`   | python-stub (copied as-is)    |
 | `backend/`, `api/`, `frontend/` dirs           | scoped AGENTS.md per dir      |
